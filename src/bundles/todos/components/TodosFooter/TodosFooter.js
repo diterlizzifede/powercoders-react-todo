@@ -1,5 +1,5 @@
 import React from 'react';
-import { status } from '../utilities/Status'
+import { status } from '../../../utilities/Status'
 
 class TodosFooter extends React.Component {
     render() {

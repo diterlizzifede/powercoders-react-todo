@@ -3,8 +3,8 @@ import TodosHeader from './TodosHeader';
 import TodosInput from './TodosInput';
 import TodosFooter from './TodosFooter';
 import TodoItem from './TodoItem';
-import { Item } from '../utilities/Item';
-import { status } from "../utilities/Status";
+import { Item } from '../classes/Item';
+import { status } from "../../../utilities/Status";
 
 const APP_TITLE = 'My Todos';
 const PLACEHOLDER = 'What needs to be done??';
