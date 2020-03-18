@@ -1,6 +1,6 @@
 import React from 'react';
-import Todos from './components/Todos'
-import './App.css';
+import Todos from './bundles/todos/components/Todos'
+import './App.scss';
 
 function App() {
   return (

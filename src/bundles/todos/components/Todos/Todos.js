@@ -1,15 +1,16 @@
 import React from 'react';
-import TodosHeader from './TodosHeader';
-import TodosInput from './TodosInput';
-import TodosFooter from './TodosFooter';
-import TodoItem from './TodoItem';
-import { Item } from '../classes/Item';
-import { status } from "../../../utilities/Status";
+import TodosHeader from '../TodosHeader';
+import TodosInput from '../TodosInput';
+import TodosFooter from '../TodosFooter';
+import TodoItem from '../TodoItem';
+import { Item } from '../../classes';
+import { status } from "../../constants";
+import styled from 'styled-components';
 
 const APP_TITLE = 'My Todos';
-const PLACEHOLDER = 'What needs to be done??';
+const PLACEHOLDER = 'What needs to be done?';
 
-class Todos extends React.Component {
+export class Todos extends React.Component {
     constructor(props) {
         // superclass constructor invocation
         super(props);
@@ -101,7 +102,7 @@ class Todos extends React.Component {
             }
         });
         const ul = !!currentList.length &&
-            <ul>
+            <TodoList>
                 {
                     currentList.map((todo) =>
                         <TodoItem
@@ -112,7 +113,7 @@ class Todos extends React.Component {
                         />
                     )
                 }
-            </ul>;
+            </TodoList>;
         const footer = !!this.state.todoList.length &&
             <TodosFooter
                 listLength={currentList.length}
@@ -122,21 +123,43 @@ class Todos extends React.Component {
             />;
 
         return (
-            <section id="todo-app" className="todos">
+            <TodosContainer>
                 <TodosHeader appTitle={APP_TITLE}/>
 
-                <TodosInput
-                    inputPlaceholder={PLACEHOLDER}
-                    addItem={this.addItemToList}
-                />
+                <ListContainer>
+                    <TodosInput
+                        inputPlaceholder={PLACEHOLDER}
+                        addItem={this.addItemToList}
+                    />
 
-                {/* remember: if ul === false, jsx will ignore it */}
-                { ul }
+                    {/* remember: if ul === false, jsx will ignore it */}
+                    { ul }
 
-                { footer }
-            </section>
+                    { footer }
+                </ListContainer>
+            </TodosContainer>
         );
     }
 }
 
-export default Todos;
+const TodosContainer = styled.section`
+    background-color: #fff;
+    margin: 45px auto;
+    width: 500px;
+    -webkit-box-shadow: -1px 4px 29px 2px rgba(171,169,171,0.81);
+    -moz-box-shadow: -1px 4px 29px 2px rgba(171,169,171,0.81);
+    box-shadow: -1px 4px 29px 2px rgba(171,169,171,0.81);
+`;
+
+const ListContainer = styled.div`
+    padding: 8px;
+`;
+
+const TodoList = styled.ul`
+    overflow-y: scroll;
+    max-height: 400px;
+    ::-webkit-scrollbar {
+        width: 0px;  
+        background: transparent;  
+    }
+`;

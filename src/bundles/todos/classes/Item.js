@@ -1,4 +1,4 @@
-import { status } from './Status';
+import { status } from '../constants';
 const uniqid = require('uniqid');
 
 export class Item {
