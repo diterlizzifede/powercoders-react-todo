@@ -2,7 +2,7 @@ import React from 'react';
 
 const ENTER_KEY = 13;
 
-class TodosInput extends React.Component {
+export class TodosInput extends React.Component {
     constructor(props) {
         super(props);
 
@@ -44,5 +44,3 @@ class TodosInput extends React.Component {
         );
     }
 }
-
-export default TodosInput;

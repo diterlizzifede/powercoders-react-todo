@@ -1,15 +1,15 @@
 import React from 'react';
-import TodosHeader from './TodosHeader';
-import TodosInput from './TodosInput';
-import TodosFooter from './TodosFooter';
-import TodoItem from './TodoItem';
-import { Item } from '../classes/Item';
-import { status } from "../../../utilities/Status";
+import TodosHeader from '../TodosHeader';
+import TodosInput from '../TodosInput';
+import TodosFooter from '../TodosFooter';
+import TodoItem from '../TodoItem';
+import { Item } from '../../classes/Item';
+import { status } from "../../constants";
 
 const APP_TITLE = 'My Todos';
 const PLACEHOLDER = 'What needs to be done??';
 
-class Todos extends React.Component {
+export class Todos extends React.Component {
     constructor(props) {
         // superclass constructor invocation
         super(props);
@@ -138,5 +138,3 @@ class Todos extends React.Component {
         );
     }
 }
-
-export default Todos;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { status } from '../../../utilities/Status'
+import { status } from '../../constants'
 
-class TodosFooter extends React.Component {
+export class TodosFooter extends React.Component {
     render() {
         return (
             <div>
@@ -25,5 +25,3 @@ class TodosFooter extends React.Component {
         );
     }
 }
-
-export default TodosFooter;

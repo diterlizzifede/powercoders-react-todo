@@ -1,6 +1,6 @@
 import React from 'react';
 
-class TodosHeader extends React.Component {
+export class TodosHeader extends React.Component {
     render() {
         return (
             <div>
@@ -10,4 +10,3 @@ class TodosHeader extends React.Component {
     }
 }
 
-export default TodosHeader;

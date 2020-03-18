@@ -1,7 +1,7 @@
 import React from 'react';
-import { status } from '../../../utilities/Status';
+import { status } from '../../constants';
 
-class TodoItem extends React.Component {
+export class TodoItem extends React.Component {
     deleteClickHandler = () => {
         this.props.remove(this.props.todo.id);
     }
@@ -24,5 +24,3 @@ class TodoItem extends React.Component {
         );
     }
 }
-
-export default TodoItem;
