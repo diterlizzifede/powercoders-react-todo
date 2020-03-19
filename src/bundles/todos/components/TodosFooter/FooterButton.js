@@ -1,5 +1,4 @@
 import React from 'react';
-import {status} from "../../constants";
 import styled from 'styled-components';
 
 class FooterButton extends React.Component {
