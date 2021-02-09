@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const ENTER_KEY = 13;
 
@@ -32,7 +33,7 @@ export class TodosInput extends React.Component {
 
     render () {
         return (
-            <div>
+            <InputContainer>
                 <input
                     type="text"
                     value={this.state.inputValue}
@@ -40,7 +41,19 @@ export class TodosInput extends React.Component {
                     onKeyPress={this.keyPressHandler}
                     onChange={this.changeHandler}
                 />
-            </div>
+            </InputContainer>
         );
     }
 }
+
+const InputContainer = styled.div`
+    input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #bcbcbc;
+        height: 35px;
+        :focus {
+            outline: none;
+        }
+    }
+`;

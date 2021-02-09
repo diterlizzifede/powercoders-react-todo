@@ -1,27 +1,51 @@
 import React from 'react';
-import { status } from '../../constants'
+import { status, fontColor } from '../../constants';
+import {FooterButton} from "./FooterButton";
+import styled from 'styled-components';
 
 export class TodosFooter extends React.Component {
     render() {
         return (
-            <div>
+            <FooterContainer>
                 <span>{`${this.props.listLength} items left`}</span>
-                <div>
-                    <button
-                        onClick={() => this.props.changeStatus(status.ALL)}
-                        className={this.props.current === status.ALL ? 'selected' : ''}
-                    >{status.ALL}</button>
-                    <button
-                        onClick={() => this.props.changeStatus(status.ACTIVE)}
-                        className={this.props.current === status.ACTIVE ? 'selected' : ''}
-                    >{status.ACTIVE}</button>
-                    <button
-                        onClick={() => this.props.changeStatus(status.COMPLETED)}
-                        className={this.props.current === status.COMPLETED ? 'selected' : ''}
-                    >{status.COMPLETED}</button>
-                    <button onClick={this.props.deleteAll}>delete all</button>
-                </div>
-            </div>
+                <FlexContainer>
+                    <FooterButton
+                        action={() => this.props.changeStatus(status.ALL)}
+                        label={status.ALL}
+                        active={this.props.current === status.ALL}
+                    />
+                    <FooterButton
+                        action={() => this.props.changeStatus(status.ACTIVE)}
+                        label={status.ACTIVE}
+                        active={this.props.current === status.ACTIVE}
+                    />
+                    <FooterButton
+                        action={() => this.props.changeStatus(status.COMPLETED)}
+                        label={status.COMPLETED}
+                        active={this.props.current === status.COMPLETED}
+                    />
+                    <FooterButton
+                        action={this.props.deleteAll}
+                        label="delete all"
+                    />
+                </FlexContainer>
+            </FooterContainer>
         );
     }
 }
+
+const FlexContainer = styled.div`
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+`;
+
+const FooterContainer = styled.div`
+    padding: 0 25px 25px;
+    span {
+        color: #6f6f6f;
+        font-size: 12px;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+`;

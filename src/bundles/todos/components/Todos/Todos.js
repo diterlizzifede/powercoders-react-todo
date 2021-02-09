@@ -5,6 +5,7 @@ import TodosFooter from '../TodosFooter';
 import TodoItem from '../TodoItem';
 import { Item } from '../../classes/Item';
 import { status } from "../../constants";
+import styled from 'styled-components';
 
 const APP_TITLE = 'My Todos';
 const PLACEHOLDER = 'What needs to be done??';
@@ -101,7 +102,7 @@ export class Todos extends React.Component {
             }
         });
         const ul = !!currentList.length &&
-            <ul>
+            <List>
                 {
                     currentList.map((todo) =>
                         <TodoItem
@@ -112,7 +113,7 @@ export class Todos extends React.Component {
                         />
                     )
                 }
-            </ul>;
+            </List>;
         const footer = !!this.state.todoList.length &&
             <TodosFooter
                 listLength={currentList.length}
@@ -122,19 +123,32 @@ export class Todos extends React.Component {
             />;
 
         return (
-            <section id="todo-app" className="todos">
+            <section>
                 <TodosHeader appTitle={APP_TITLE}/>
+                <ListContainer>
+                    <TodosInput
+                        inputPlaceholder={PLACEHOLDER}
+                        addItem={this.addItemToList}
+                    />
 
-                <TodosInput
-                    inputPlaceholder={PLACEHOLDER}
-                    addItem={this.addItemToList}
-                />
-
-                {/* remember: if ul === false, jsx will ignore it */}
-                { ul }
+                    {/* remember: if ul === false, jsx will ignore it */}
+                    { ul }
+                </ListContainer>
 
                 { footer }
             </section>
         );
     }
 }
+
+const ListContainer = styled.div`
+    padding: 8px 25px;
+`;
+
+const List = styled.ul`
+    overflow-y: scroll;
+    max-height: 370px;
+    ::-webkit-scrollbar { 
+        width: 0 !important 
+    }
+`;
